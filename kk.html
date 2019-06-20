@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var b = '我从字符串变成了变量'
+    
+   
+    
+    // var c = eval('b')
+    // console.log(c,111)
+  var Home = {a:1}
+  var Menus = {b:2}
+  var Resources = {c:3}
+  var a=  
+    [{
+      "path": "/home",
+      "name": "首页",
+      "component": 'Home',
+      "children": [{
+        "path": "menus",
+        "name": "菜单管理",
+        "component": 'Menus'
+      }, {
+        "path": "resources",
+        "name": "资源管理",
+        "component": 'Resources'
+      }]
+    }]
+
+function kk (arr){
+    var Arr = [...arr] 
+    Arr.forEach((item,index) => {
+        item.component = eval(item.component)
+        console.log(item.component)
+        if(item.children){
+          kk(item.children)
+        }
+    });
+    return Arr
+}
+
+kk(a)
+  </script>
+</body>
+</html>
